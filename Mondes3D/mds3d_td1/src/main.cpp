@@ -15,9 +15,19 @@ void render(Scene* scene, ImageBlock* result, std::string outputName, bool* done
 
     float tanfovy2 = tan(camera->fovY()*0.5);
     Vector3f camX = camera->right() * tanfovy2 * camera->nearDist() * float(camera->vpWidth())/float(camera->vpHeight());
-    Vector3f camY = camera->up() * tanfovy2 * camera->nearDist();
+    Vector3f camY = -camera->up() * tanfovy2 * camera->nearDist();
     Vector3f camF = camera->direction() * camera->nearDist();
 
+    for(unsigned int i = 0; i < camera->vpWidth(); i++){
+        for(unsigned int j = 0; j < camera->vpHeight(); j++){
+            Vector3f dir = camF + 2*(i/camera->vpWidth() - 0.5)*camX
+                              + 2*(j/camera->vpHeight() - 0.5)*camY;
+            dir = dir.normalized();
+            Ray *ray = new Ray(camera->position(), dir);
+            Color3f color = integrator->Li(scene, *ray);
+            result->put({(float)i, (float)j}, color);
+        }
+    }
     /// TODO:
     ///  1. iterate over the image pixels
     ///  2. generate a primary ray

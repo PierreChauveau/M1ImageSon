@@ -26,6 +26,14 @@ void Scene::intersect(const Ray& ray, Hit& hit) const
 {
     /// TODO: iterate on the object list and test for intersection
     ///       => if any, keep the closest one
+    Hit* tmphit = new Hit();
+    for(unsigned int i = 0; i < this->shapeList().size(); i++){
+        if(this->shapeList()[i]->intersect(ray, *tmphit)){
+            if(tmphit->t() < hit.t()){
+                hit = *tmphit;
+            }
+        }
+    }
 }
 
 void Scene::addChild(Object *obj) {

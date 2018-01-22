@@ -19,9 +19,27 @@ Sphere::~Sphere()
 bool Sphere::intersect(const Ray& ray, Hit& hit) const
 {
     /// TODO: compute ray-sphere intersection
+    float a = ray.direction.dot(ray.direction);
+    float b = 2 * ray.direction.dot(ray.origin - this->m_center);
+    Vector3f tmp = ray.origin - this->m_center;
+    float c = tmp.dot(tmp) - this->m_radius*this->m_radius;
 
-    throw RTException("Sphere::intersect not implemented yet.");
-
+    float delta = b * b - 4 * a * c;
+    if(delta >= 0){
+        float x1 = (-b - sqrt(delta))/ (2* a);
+        float x2 = (-b + sqrt(delta))/ (2* a);
+        printf("ici");
+        if(x1 >= 0 && (x2 < 0 || x1 <= x2)){
+            hit.setT(x1);
+            hit.setShape(this);
+            return true;
+        }
+        else if(x2 >= 0 && (x1 < 0 || x2 <= x1)){
+            hit.setT(x2);
+            hit.setShape(this);
+            return true;
+        }
+    }
     return false;
 }
 
