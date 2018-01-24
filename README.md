@@ -7,3 +7,7 @@ Semestre 2 Master 1 d'Informatique spécialité Image et Son
 <p>Master Informatique Image et son : http://masterinfo.emi.u-bordeaux.fr/wiki/doku.php?id=iis</p>
 <p>Master Informatique (contacts) : http://masterinfo.emi.u-bordeaux.fr/wiki/doku.php</p>
 <p>Fiche de Formation : https://www.u-bordeaux.fr/formation/PRMA_68/informatique</p>
+
+<p>Pour le projet :
+http://dept-info.labri.fr/~achille/enseignement/TI/
+</p>
