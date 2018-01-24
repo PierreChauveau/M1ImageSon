@@ -11,5 +11,5 @@ Semestre 2 Master 1 d'Informatique spécialité Image et Son
 Emploi du temps : https://edt-st.u-bordeaux.fr/etudiants/Master/Master1/Semestre2/g267724.html
 
 <p>Pour le projet :
-http://dept-info.labri.fr/~achille/enseignement/TI/
+https://www.overleaf.com/13294491sfvthgztrsqc#/51214787/
 </p>
